@@ -75,7 +75,7 @@ namespace WebApplicationCarExcel.Controllers
             string csvData = System.IO.File.ReadAllText(name, Encoding.GetEncoding(28591));
                        
 
-            TextFieldParser parser = new TextFieldParser(name, Encoding.GetEncoding(28591));  // Encoding.GetEncoding("Windows-1252")) //Encoding.GetEncoding("ISO-8859-1")
+            TextFieldParser parser = new TextFieldParser(name, Encoding.GetEncoding(28591)); 
             parser.TextFieldType = FieldType.Delimited;
             parser.SetDelimiters(",");
             var r = 0;
@@ -88,9 +88,6 @@ namespace WebApplicationCarExcel.Controllers
                 if (r == 1)
                     continue;
 
-                //byte[] utf8Bytes = System.Text.Encoding.UTF8.GetBytes(fields[1]);
-
-                //string s_unicode2 = System.Text.Encoding.UTF8.GetString(utf8Bytes);
 
                 list.Add(new Vehicle
                 {
@@ -99,7 +96,7 @@ namespace WebApplicationCarExcel.Controllers
                     DealershipName = fields[2],
                     VehicleName = fields[3],
                     Price = fields[4],
-                    Date = Convert.ToDateTime(fields[5], culture) //DateTime.Parse(fields[5]), DateTime.ParseExact(fields[5], format, provider)
+                    Date = Convert.ToDateTime(fields[5], culture) 
 
 
             });
