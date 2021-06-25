@@ -31,10 +31,8 @@ export class AppComponent {
         
     this.vehicles$ = this.service.getVehicles(this.fileName);
     this.vehicles$.subscribe((data) => {
-        console.log(data);
-        
-      data.forEach(vehicle =>{
-        console.log(vehicle);
+                
+      data.forEach(vehicle =>{        
         //first time creates array
         if (this.countVehicle === undefined) {
           var v = new VehicleCount(vehicle.vehicleName,1)
