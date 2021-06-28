@@ -81,10 +81,11 @@ namespace WebApplicationCarExcel.Controllers
 
             while (!parser.EndOfData)
             {
-                r++;               
-                string[] fields = parser.ReadFields();
+                r++;
                 if (r == 1)
                     continue;
+                string[] fields = parser.ReadFields();
+               
                 list.Add(new Vehicle
                 {
                     DealNumber = Convert.ToInt32(fields[0]),
