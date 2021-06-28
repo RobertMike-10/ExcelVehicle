@@ -72,9 +72,7 @@ namespace WebApplicationCarExcel.Controllers
         private List<Vehicle> ParseFileToList(string name)
         {
             List<Vehicle> list = new List<Vehicle>();
-            string csvData = System.IO.File.ReadAllText(name, Encoding.GetEncoding(28591));
-                       
-
+            
             TextFieldParser parser = new TextFieldParser(name, Encoding.GetEncoding(28591)); 
             parser.TextFieldType = FieldType.Delimited;
             parser.SetDelimiters(",");
@@ -87,8 +85,6 @@ namespace WebApplicationCarExcel.Controllers
                 string[] fields = parser.ReadFields();
                 if (r == 1)
                     continue;
-
-
                 list.Add(new Vehicle
                 {
                     DealNumber = Convert.ToInt32(fields[0]),
@@ -97,11 +93,8 @@ namespace WebApplicationCarExcel.Controllers
                     VehicleName = fields[3],
                     Price = fields[4],
                     Date = Convert.ToDateTime(fields[5], culture) 
-
-
             });
             }
-
             return list;
         }
 
